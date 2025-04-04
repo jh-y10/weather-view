@@ -11,7 +11,7 @@ function App() {
   const [city, setCity] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState("");
-  const API_KEY = "e5fd728a1ec0efa16dd7f42a6296c8d5";
+  const API_KEY = import.meta.env.VITE_APP_API_KEY;
   let cities = ["seoul", "tokyo", "paris", "new york", "beijing"];
 
   const getCurrentLocation = () => {
