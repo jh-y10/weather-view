@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?cs=srgb&dl=pexels-pixabay-531756.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Inter", sans-serif;
+}
+
+.wrap-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.weather-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.weather-area h1 {
+  margin-bottom: 17px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.weather-area strong {
+  display: block;
+  margin-bottom: 19px;
+  font-size: 52px;
+  font-weight: 500;
+}
+
+.weather-area img {
+  display: block;
+  margin-bottom: 19px;
+  width: 49px;
+  height: auto;
+}
+
+.weather-area p {
+  margin-bottom: 28px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.button-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 343px;
+  height: auto;
+  padding: 14px;
+  /* border-radius: 8px;
+  background-color: rgba(217, 217, 217, 0.5); */
+}
+
+.normal-button {
+  width: 100px;
+  height: 80px;
+  margin-bottom: 12px;
+  border: none;
+  color: #494949;
+  background-color: rgba(217, 217, 217, 0.7);
+  text-transform: uppercase;
+}
+
+.normal-button:hover {
+  background-color: #0066ff;
+  transform: scale(1.1);
+}
+
+.active-button {
+  width: 100px;
+  height: 80px;
+  margin-bottom: 12px;
+  border: none;
+  background-color: #0066ff;
+  color: #fff;
+  transform: scale(1.1);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .weather-area h1 {
+    font-size: 34px;
+  }
+
+  .weather-area strong {
+    font-size: 62px;
+  }
+
+  .weather-area img {
+    width: 59px;
+  }
+
+  .weather-area p {
+    font-size: 26px;
+  }
+
+  .button-area {
+    width: 768px;
+  }
+
+  .normal-button {
+    width: 120px;
+  }
+
+  .active-button {
+    width: 120px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .weather-area h1 {
+    font-size: 44px;
+  }
+
+  .weather-area strong {
+    font-size: 72px;
+  }
+
+  .weather-area img {
+    width: 69px;
+  }
+
+  .weather-area p {
+    font-size: 30px;
+  }
+
+  .button-area {
+    width: 1024px;
+  }
+
+  .normal-button {
+    width: 150px;
+  }
+
+  .active-button {
+    width: 150px;
+  }
+}
