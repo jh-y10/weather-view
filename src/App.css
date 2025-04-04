@@ -11,6 +11,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.error-message {
+  text-align: center;
+}
+
 .wrap-content {
   display: flex;
   flex-direction: column;

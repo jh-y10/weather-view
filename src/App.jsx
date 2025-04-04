@@ -4,11 +4,13 @@ import "./App.css";
 import ViewWeather from "./component/ViewWeather";
 import WeatherButton from "./component/WeatherButton";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Alert } from "react-bootstrap";
 
 function App() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState("");
   const API_KEY = "e5fd728a1ec0efa16dd7f42a6296c8d5";
   let cities = ["seoul", "tokyo", "paris", "new york", "beijing"];
 
@@ -21,25 +23,35 @@ function App() {
   };
 
   const getWeatherAPI = async (lat, lon) => {
-    let url = new URL(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-    );
-    setLoading(true);
-    let response = await fetch(url);
-    let data = await response.json();
-    setWeather(data);
-    setLoading(false);
+    try {
+      let url = new URL(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+      );
+      setLoading(true);
+      let response = await fetch(url);
+      let data = await response.json();
+      setWeather(data);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setIsError(err.message);
+    }
   };
 
   const getWeatherByCity = async () => {
-    let url = new URL(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    setLoading(true);
-    let response = await fetch(url);
-    let data = await response.json();
-    setWeather(data);
-    setLoading(false);
+    try {
+      let url = new URL(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      setLoading(true);
+      let response = await fetch(url);
+      let data = await response.json();
+      setWeather(data);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setIsError(err.message);
+    }
   };
 
   const cityHandle = (city) => {
@@ -63,6 +75,10 @@ function App() {
       {loading ? (
         <div className="wrap-content">
           <ClipLoader color="#fff" loading={loading} size={150} />
+        </div>
+      ) : isError ? (
+        <div className="wrap-content">
+          <Alert variant="danger" className="error-message">{isError}</Alert>
         </div>
       ) : (
         <div className="wrap-content">
