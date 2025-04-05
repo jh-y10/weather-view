@@ -12,7 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState("");
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
-  let cities = ["seoul", "tokyo", "paris", "new york", "beijing"];
+  let cities = ["seoul", "tokyo", "paris", "new york"];
 
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -57,6 +57,8 @@ function App() {
   const cityHandle = (city) => {
     if (city === "current") {
       setCity(null);
+    } else if (city === "error") {
+      setCity("error");
     } else {
       setCity(city);
     }
@@ -65,6 +67,8 @@ function App() {
   useEffect(() => {
     if (city === null) {
       getCurrentLocation();
+    } else if (city === "error") {
+      setIsError("에러 핸들링 테스트 메시지!");
     } else {
       getWeatherByCity();
     }

@@ -23,6 +23,14 @@ const WeatherButton = ({ cities, city, cityHandle }) => {
           {item}
         </Button>
       ))}
+      <Button
+        variant={`${
+          city === "error" ? "primary active-button" : "primary normal-button"
+        }`}
+        onClick={() => cityHandle("error")}
+      >
+        error handling
+      </Button>
     </div>
   );
 };
