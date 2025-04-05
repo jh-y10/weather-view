@@ -3,8 +3,14 @@
   margin: 0;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-image: url("https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?cs=srgb&dl=pexels-pixabay-531756.jpg&fm=jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,12 +21,24 @@ body {
   text-align: center;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
 .wrap-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .weather-area {

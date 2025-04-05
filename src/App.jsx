@@ -71,7 +71,7 @@ function App() {
   }, [city]);
 
   return (
-    <div>
+    <div className="main">
       {loading ? (
         <div className="wrap-content">
           <ClipLoader color="#fff" loading={loading} size={150} />
